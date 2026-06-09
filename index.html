@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BMI Calculator</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <div class="card">
+    <div class="pill">Body Mass Index</div>
+    <h1>Know your <span>body</span> better</h1>
+    <p class="sub">Enter your details for an instant health snapshot.</p>
+
+    <div class="tog">
+      <button class="tbtn on" id="btnM" onclick="switchUnit('metric')">Metric</button>
+      <button class="tbtn" id="btnI" onclick="switchUnit('imperial')">Imperial</button>
+    </div>
+
+    <!-- Metric Section -->
+    <div id="secMetric">
+      <div class="fgroup">
+        <span class="flabel">Height</span>
+        <div class="iwrap" id="wHcm">
+          <input type="number" id="hcm" placeholder="175" min="50" max="250"/>
+          <span class="ulabel">cm</span>
+        </div>
+      </div>
+      <div class="fgroup">
+        <span class="flabel">Weight</span>
+        <div class="iwrap" id="wWkg">
+          <input type="number" id="wkg" placeholder="70" min="10" max="300"/>
+          <span class="ulabel">kg</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Imperial Section -->
+    <div id="secImp" style="display:none">
+      <div class="fgroup">
+        <span class="flabel">Height</span>
+        <div class="irow">
+          <div class="iwrap" id="wHft">
+            <input type="number" id="hft" placeholder="5" min="1" max="8"/>
+            <span class="ulabel">ft</span>
+          </div>
+          <div class="iwrap" id="wHin">
+            <input type="number" id="hin" placeholder="9" min="0" max="11"/>
+            <span class="ulabel">in</span>
+          </div>
+        </div>
+      </div>
+      <div class="fgroup">
+        <span class="flabel">Weight</span>
+        <div class="iwrap" id="wLbs">
+          <input type="number" id="lbs" placeholder="154" min="20" max="700"/>
+          <span class="ulabel">lbs</span>
+        </div>
+      </div>
+    </div>
+
+    <button class="cbtn" onclick="calcBMI()">Calculate BMI</button>
+
+    <!-- Result Section -->
+    <div class="result" id="resultBox" style="display:none">
+      <div class="srow">
+        <span class="bval" id="bmiNum">--</span>
+        <span class="bcat" id="bmiCat">--</span>
+      </div>
+      <div class="gbar">
+        <div class="gneedle" id="needle" style="left:2%"></div>
+      </div>
+      <div class="gcats">
+        <span>Underweight</span>
+        <span>Normal</span>
+        <span>Overweight</span>
+        <span>Obese</span>
+      </div>
+      <div class="advice" id="adviceBox">--</div>
+      <button class="rbtn" onclick="resetCalc()">Reset</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
